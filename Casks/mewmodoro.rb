@@ -7,10 +7,15 @@ cask "mewmodoro" do
   desc "デスクトップ常駐ポモドーロ猫マスコット"
   homepage "https://kiki-neko.com/"
 
-  # アプリ本体を /Applications にインストール
   app "Mewmodoro.app"
 
-  # アンインストール時（brew uninstall）に消す関連ファイル
+  # インストール後に検疫属性を自動除去（未署名アプリのため）
+  # ※ --no-quarantine が廃止されたので、cask側で xattr を直接実行する
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Mewmodoro.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/Mewmodoro",
     "~/Library/Preferences/com.mewmodoro.app.plist",
