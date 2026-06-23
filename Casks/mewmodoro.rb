@@ -1,6 +1,6 @@
 cask "mewmodoro" do
   version "1.1.4"
-  sha256 "8c075f49fe21f083e14b3bfe3c778299f580535630dfd083f626dc045c9e23b5"
+  sha256 "0248d83317d47899521c283a8494b4e72b49ce6ca76a444f072015971ea604ab"
 
   url "https://github.com/Inosuke0718/mewmodoro-releases/releases/download/v#{version}/Mewmodoro-Setup-#{version}.dmg"
   name "Mewmodoro"
